@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>onerror</title>
+    <script type="text/javascript">
+        function test() {
+            try{
+                var value = document.getElementById('value').value;
+                if(value == ''){
+                    throw '数字不能为空'
+                }
+                if(value > 10){
+                    throw '数字不能大于10'
+                }
+                if(value < 5){
+                    throw '数字不能小于5'
+                }
+                if(isNaN(value)){
+                    throw '必须为数字'
+                }
+            }
+            catch(e){
+                var tip = document.getElementById('tip');
+                tip.innerHTML = e;
+            }
+        }
+    </script>
+</head>
+<body>
+<input type="text" placeholder="请输入一个5到10之间的数字" id="value">
+<button onclick="test()">click me</button>
+<p id="tip"></p>
+</body>
+</html>
