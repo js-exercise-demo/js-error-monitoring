@@ -23,13 +23,28 @@
             catch(e){
                 var tip = document.getElementById('tip');
                 tip.innerHTML = e;
+                console.log('testError')
             }
         }
+        try{
+            var value = document.getElementById('value').value;
+            var btn = document.getElementById('btn');
+            btn.onclick = function () {
+                if(value == ''){
+                    throw 'error'
+                }
+            }
+        }
+        catch(e){
+            console.log('test error');
+           // console.log(e)
+        }
+
     </script>
 </head>
 <body>
 <input type="text" placeholder="请输入一个5到10之间的数字" id="value">
-<button onclick="test()">click me</button>
+<button id="btn" onclick="test()">click me</button>
 <p id="tip"></p>
 </body>
 </html>
